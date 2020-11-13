@@ -1,0 +1,63 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 2cf5acb8b1e99cc1bb99d1acf7094970c3d369822fbeb0d4640dbe5d81e3b9fc
+
+name:           lcd-numbers
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/moreau-nicolas/haskell-hspec-sandbox#readme>
+homepage:       https://github.com/moreau-nicolas/kata-lcd-numbers-haskell#readme
+bug-reports:    https://github.com/moreau-nicolas/kata-lcd-numbers-haskell/issues
+author:         Nicolas MOREAU
+maintainer:     moreau-nicolas@users.noreply.github.com
+copyright:      2020 Nicolas MOREAU
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/moreau-nicolas/kata-lcd-numbers-haskell
+
+library
+  exposed-modules:
+      Lcd
+  other-modules:
+      Paths_lcd_numbers
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable lcd-numbers-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_lcd_numbers
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , lcd-numbers
+  default-language: Haskell2010
+
+test-suite lcd-numbers-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Lcd.LcdSpec
+      Paths_lcd_numbers
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hspec
+    , lcd-numbers
+  default-language: Haskell2010

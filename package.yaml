@@ -1,0 +1,48 @@
+name:                lcd-numbers
+version:             0.1.0.0
+github:              "moreau-nicolas/kata-lcd-numbers-haskell"
+license:             BSD3
+author:              "Nicolas MOREAU"
+maintainer:          "moreau-nicolas@users.noreply.github.com"
+copyright:           "2020 Nicolas MOREAU"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/moreau-nicolas/haskell-hspec-sandbox#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  lcd-numbers-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lcd-numbers
+
+tests:
+  lcd-numbers-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lcd-numbers
+    - hspec
